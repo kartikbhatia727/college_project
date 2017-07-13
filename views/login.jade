@@ -1,0 +1,39 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title DesiKart : Login
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='javascripts/login.js')
+    style.
+      .form {
+      width: 300px;
+      margin: 0 auto;
+      }
+  body
+    .w3-container.w3-blue.w3-center
+      h1
+        strong DesiKart
+    .w3-container.w3-light-grey.w3-center
+      h2 Login
+    .w3-container.w3-center.form(style='padding-top:40px;')
+      div
+        p
+          | Enter Email/Mobile :
+          br
+          br
+          input#login(style='border-radius:3px', type='text')
+          br
+        |  Enter Your Password :
+        br
+        p
+          input#password(style='border-radius:3px', type='password')
+          br
+        p
+          input#btn(type='submit', value='Login')
+    hr
+    footer.w3-container.w3-light-black.w3-center
+      p
+        strong DesiKart
+        |  , Inc. or its affiliates

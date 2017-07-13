@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<title>DesiKart</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="css1/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <style>
+    * {
+        box-sizing: border-box
+    }
+    
+    body {
+        font-family: Verdana, sans-serif;
+    }
+    
+    .mySlides {
+        display: none
+    }
+    /* Slideshow container */
+    
+    .slideshow-container {
+        max-width: 300px;
+        position: relative;
+        margin: auto;
+    }
+    /* Caption text */
+    
+    .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+    /* Number text (1/3 etc) */
+    
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+    /* The dots/bullets/indicators */
+    
+    .dot {
+        height: 13px;
+        width: 13px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+    
+    .active {
+        background-color: #717171;
+    }
+    /* Fading animation */
+    
+    .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+    
+    @-webkit-keyframes fade {
+        from {
+            opacity: .4
+        }
+        to {
+            opacity: 1
+        }
+    }
+    
+    @keyframes fade {
+        from {
+            opacity: .4
+        }
+        to {
+            opacity: 1
+        }
+    }
+    /* On smaller screens, decrease text size */
+    
+    @media only screen and (max-width: 300px) {
+        .text {
+            font-size: 11px
+        }
+    }.w3-sidebar a {font-family: "Roboto", sans-serif}
+body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+</style>
+<body class="w3-content" style="max-width:1200px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+    <h1 class="w3-wide"><a href="index.html"><b><strong>DesiKart</strong></b></a></h1>
+  </div>
+  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+    <a href="#" class="w3-bar-item w3-button">Mobile</a>
+    <a href="#" class="w3-bar-item w3-button">Laptop</a>
+    
+    <a href="#" class="w3-bar-item w3-button">Television</a>
+    <a href="#" class="w3-bar-item w3-button">Camera</a>
+    <a href="#" class="w3-bar-item w3-button">Tablets</a>
+    <a href="#" class="w3-bar-item w3-button">Pheripherals</a>
+  </div>
+  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
+
+  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+  
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:250px">
+	
+  <!-- Push down content on small screens -->
+  <div class="w3-hide-large" style="margin-top:83px"></div>
+  
+  <!-- Top header -->
+  <header class="w3-container w3-xlarge">
+    
+    <p >
+				
+				
+				<div class=" w3-right w3-bar-item ">
+				<div class=" w3-dropdown-hover w3-white"><i class="fa fa-user w3-margin-right"></i>
+					<div class="w3-dropdown-content w3-bar-block w3-border w-padding">
+						<a href="/account" class="w3-bar-item w3-button">Account</a>
+						<a href="/orders" class="w3-bar-item w3-button">Order</a>
+						<a href="/logout" class="w3-bar-item w3-button">Logout</a>
+					 </div></div>
+					 <a href="/cart"><i class="fa fa-shopping-cart w3-margin-right"></i></a>
+				
+				</div>
+				
+			</p>
+						<nav>
+				<ul class="w3-right">
+					<li><a href="/signup" >Sign Up</a></li>
+					<li><a href="/login">Log In</a></li>
+				</ul>
+			</nav>	
+  </header>
+
+
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div> <img src="images1/28.jpg" style="width:100%">
+            <div class="text w3-black">COMING SOON</div>
+        </div>
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div> <img src="images1/29.jpg" style="width:100%">
+            <div class="text w3-black">COMING SOON</div>
+        </div>
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div> <img src="images1/31.jpg" style="width:100%">
+            <div class="text w3-black">COMING SOON</div>
+        </div>
+    </div>
+    <br>
+    <div style="text-align:center"> <span class="dot"></span> <span class="dot"></span> <span class="dot"></span> </div>
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+    <div class="w3-row w3-grayscale">
+        <div class="w3-col l3 s3">
+            <div class="w3-container"> <img src="images1/7.jpg" style="width:100%">
+                <p>Lava
+                    <br><b>Rs.2000</b></p>
+            </div>
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+        </div>
+        <div class="w3-col l3 s3">
+            <div class="w3-container">
+                <div class="w3-display-container"> <img src="images1/5.jpg" style="width:100%"> <span class="w3-tag w3-display-topleft">New</spa>
+          
+        </div>
+        <p>Mi<br><b>Rs.7000</b></p>
+        <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+      </div>
+      
+      
+    
+    </div>
+
+    <div class="w3-col l3 s3">
+      <div class="w3-container ">
+        <img src="images1/3.jpg" style="width:100%">
+        <p>Samsung<br><b>Rs.10000</b></p>
+      </div>
+      <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        
+    <div class="w3-col l3 s3">
+      <div class="w3-container">
+        <img src="images1/4.jpg" style="width:100%">
+        <p>moto g2<br><b>Rs.12000</b></p>
+      </div>
+     <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+        </div>
+        </div>
+        <div style="padding-bottom:10px;"></div>
+        <div class="w3-container w3-black"><h1> </h1></div>
+        
+    <footer class="w3-padding-64 w3-light-grey w3-small w3-center " id="footer">
+        <div class="w3-row-padding">
+            <div class="w3-col s4">
+                <h4><strong>CONTACT US</strong></h4>
+                <p>Question about?</p>
+                <form>
+                    <p>
+                        <input class="w3-input w3-border" type="text" placeholder="Name"> </p>
+                    <p>
+                        <input class="w3-input w3-border" type="text" placeholder="Email"> </p>
+                    <p>
+                        <input class="w3-input w3-border" type="text" placeholder="subject"> </p>
+                    <p>
+                        <input class="w3-input w3-border" type="text" placeholder="message"> </p>
+                    <button type="button" class="w3-button  w3-block w3-black">Send</button>
+                </form>
+            </div>
+            <div class="w3-col s4">
+                <h4><strong>ABOUT</strong></h4>
+                <p><a href="#">About us</a></p>
+                <p><a href="#">Help</a></p>
+                <h4 class="abc"><strong>NEED HELP ?</strong></h4>
+                <p><i class="fa fa-fw fa-phone"></i> 9999954637</p>
+                <p><i class="fa fa-fw fa-envelope"></i> desikart@gmail.com</p>
+            </div>
+            <div>
+                <div class="w3-col s4 w3-justify">
+                    <h4><strong>SUBSCRIBE</strong></h4>
+                    <p>
+                        <input class=" w3-border abcd w3-padding-large" type="text" placeholder="Your Email Address">
+                        <button type="button" class="w3-button abcd w3-black">SUBSCRIBE</button>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w3-container w3-padding-8">
+    <h6> </h6>
+      </div>
+
+    </footer>
+    <div class="w3-black w3-center w3-padding-8">
+        <h4><font colour="white">CONNECT</font></h4> <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i> <i class="fa fa-instagram w3-hover-opacity w3-large"></i> <i class="fa fa-snapchat w3-hover-opacity w3-large"></i> <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i> <i class="fa fa-twitter w3-hover-opacity w3-large"></i> <i class="fa fa-linkedin w3-hover-opacity w3-large"></i> </div>
+	</div>
+	
+	</body>
+</html>

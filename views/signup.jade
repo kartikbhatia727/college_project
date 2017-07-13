@@ -1,0 +1,45 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title DesiKart : Signup
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js')
+    script(src='static/javascript1/formSignup')
+    script(src='javascripts/signup.js')
+    style.
+      .form {
+      width: 300px;
+      margin: 0 auto;
+      }
+  body
+    .w3-container.w3-blue.w3-center
+      h1
+        strong DesiKart
+    .w3-container.w3-light-grey.w3-center
+      h2 Signup
+    .w3-container.w3-center.form(style='padding-top:40px;')
+      div
+      | NAME:
+      input#name(style='border-radius:3px', type='text')
+      p
+      br
+      |       Mobile:
+      input#mob(style='border-radius:3px', type='text', data-validation-length='10', data-validation='number')
+      p
+      br
+      |       Email:
+      input#email(style='border-radius:3px', type='text', data-validation='email')
+      p
+      br
+      |       Password:
+      input#pass(style='border-radius:3px', type='password', data-validation='length', data-validation-length='min8')
+      p
+      br
+      input#btn(type='submit', value='SignUp')
+    hr
+    footer.w3-container.w3-light-black.w3-center
+      p
+        strong DesiKart
+        |  , Inc. or its affiliates

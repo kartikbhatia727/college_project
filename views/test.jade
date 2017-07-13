@@ -1,0 +1,297 @@
+doctype html
+html
+  title DesiKart : Online Shopping
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+  link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+  link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto')
+  link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Montserrat')
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet', href='static/css1/style.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js')    
+  script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  script(type='text/javascript', src='javascripts/script.js')
+  script.
+        $(document).ready(function(){
+        id="#{user.id}";
+        if(id!="Guest")
+        {
+        $('#l').hide();
+        //$('#signup').hide();
+        }
+        else
+        {
+        $('#logout').hide();
+        }
+        });
+  style.
+    * {box-sizing:border-box}
+    body {font-family: Verdana,sans-serif;}
+    .mySlides {display:none}
+    /* Slideshow container */
+    .slideshow-container {
+    max-width: 900px;
+    position: relative;
+    margin: auto;
+    }
+    /* Caption text */
+    .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    }
+    /* Number text (1/3 etc) */
+    .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    }
+    /* The dots/bullets/indicators */
+    .dot {
+    height: 13px;
+    width: 13px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    }
+    .active {
+    background-color: #717171;
+    }
+    /* Fading animation */
+    .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+    }
+    @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+    }
+    @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+    }
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+    .text {font-size: 11px}
+    }
+    .w3-sidebar a {
+    font-family: "Roboto", sans-serif
+    }
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .w3-wide {
+    font-family: "Montserrat", sans-serif;
+    }
+  body.w3-content(style='max-width:1200px',ng-app='testapp',ng-controller='testController')
+    // Sidebar/menu
+    nav#mySidebar.w3-sidebar.w3-bar-block.w3-white.w3-collapse.w3-top(style='z-index:3;width:250px')
+      .w3-container.w3-display-container.w3-padding-16
+        i.fa.fa-remove.w3-hide-large.w3-button.w3-display-topright(onclick='w3_close()')
+        h1.w3-wide
+          a(href='index.html')
+            b DesiKart
+      .w3-padding-64.w3-large.w3-text-grey(style='font-weight:bold')
+        a.w3-bar-item.w3-button(href='/mobile') Mobile
+        a.w3-bar-item.w3-button(href='#') Laptop
+        a.w3-bar-item.w3-button(href='#') Television
+        a.w3-bar-item.w3-button(href='#') Camera
+        a.w3-bar-item.w3-button(href='#') Tablets
+        a.w3-bar-item.w3-button(href='#') Pheripherals
+      a.w3-bar-item.w3-button.w3-padding(href='#footer') Contact
+      a.w3-bar-item.w3-button.w3-padding(href='#footer') Subscribe
+    // Top menu on small screens
+    header.w3-bar.w3-top.w3-hide-large.w3-black.w3-xlarge
+      a.w3-bar-item.w3-button.w3-padding-24.w3-right(href='javascript:void(0)', onclick='w3_open()')
+        i.fa.fa-bars
+    // Overlay effect when opening sidebar on small screens
+    #myOverlay.w3-overlay.w3-hide-large(onclick='w3_close()', style='cursor:pointer', title='close side menu')
+    // !PAGE CONTENT!
+    .w3-main(style='margin-left:250px')
+      // Push down content on small screens
+      .w3-hide-large(style='margin-top:83px')
+      // Top header
+      header.w3-container.w3-xlarge.w3-bar
+        p.w3-bar-item
+          input#search(type='text', size='30', placeholder='Search..' ng-model='squery')
+          input#searchbtn(type='submit',value='Search' ng-click='search(squery)')
+        p
+          .w3-right.w3-bar-item
+            |Hi, #{user.name}
+            .w3-dropdown-hover.w3-white
+              i.fa.fa-user.w3-margin-right
+              .w3-dropdown-content.w3-bar-block.w3-border.w-padding
+                a.w3-bar-item.w3-button(href='/account') Account
+                a.w3-bar-item.w3-button(href='/orders') Order
+                a.w3-bar-item.w3-button#logout(href='/logout') Logout
+            a(href='/cart')
+              i.fa.fa-shopping-cart.w3-margin-right
+        nav
+          ul#l
+            li
+              a(href='/signup') Sign Up
+            li
+              a(href='/login') Log In
+      // Image header
+      .w3-display-container.w3-container
+        img(src='static/images1/b1.jpg', alt='Jeans', style='width:100%')
+        .w3-display-topleft.w3-text-white(style='padding:24px 48px')
+          h1.w3-hide-small COLLECTION 2017
+          p
+            a.w3-button.w3-black.w3-padding-large.w3-large(href='#jeans') SHOP NOW
+      .slideshow-container
+        .mySlides.fade
+          .numbertext 1 / 3
+          img(src='static/images1/45.jpg', style='width:100%')
+          .text Caption Text
+        .mySlides.fade
+          .numbertext 2 / 3
+          img(src='static/images1/21new.jpg', style='width:100%')
+          .text Caption Two
+        .mySlides.fade
+          .numbertext 3 / 3
+          img(src='static/images1/bg2new.jpg', style='width:100%')
+          .text Caption Three
+      br
+      div(style='text-align:center')
+        span.dot
+        span.dot
+        span.dot
+      script.
+        var slideIndex = 0;
+        showSlides();
+        function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex> slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+      #jeans.w3-container.w3-text-grey
+        p 6 items
+      // Product grid
+      .w3-row.w3-grayscale
+        .w3-col.l4.s4
+          .w3-container
+            img(src='static/images1/24.jpg', style='width:100%')
+            p
+              | Laptop
+              br
+              b Rs.50,000
+          .w3-container
+            img(src='static/images1/12.jpg', style='width:100%')
+            p
+              | Notebook
+              br
+              b Rs.30000
+        .w3-col.l4.s4
+          .w3-container
+            .w3-display-container
+              img(src='static/images1/33.jpg', style='width:100%')
+              span.w3-tag.w3-display-topleft New
+              .w3-display-middle.w3-display-hover
+                button.w3-button
+                  | Buy now 
+                  i.fa.fa-shopping-cart
+            p
+              | Iron
+              br
+              b Rs.1000
+          .w3-container
+            img(src='static/images1/9.jpg', style='width:100%')
+            p
+              | Headphone
+              br
+              b Rs.5000
+        .w3-col.l4.s4
+          .w3-container
+            img(src='static/images1/35.jpg', style='width:100%')
+            p
+              | Telephone
+              br
+              b Rs.1000
+          .w3-container
+            .w3-display-container
+              img(src='static/images1/4.jpg', style='width:100%')
+              span.w3-tag.w3-display-topleft Sale
+              .w3-display-middle.w3-display-hover
+                button.w3-button
+                  | Buy now 
+                  i.fa.fa-shopping-cart
+            p
+              | Iphone
+              br
+              b.w3-text-red Rs.70,000
+      .w3-container.w3-black.w3-padding-8
+        h6  
+      footer#footer.w3-padding-64.w3-light-grey.w3-small.w3-center
+        .w3-row-padding
+          .w3-col.s4
+            h4
+              strong CONTACT US
+            p Question about?
+            form
+              p
+                input.w3-input.w3-border(type='text', placeholder='Name')
+              p
+                input.w3-input.w3-border(type='text', placeholder='Email')
+              p
+                input.w3-input.w3-border(type='text', placeholder='subject')
+              p
+                input.w3-input.w3-border(type='text', placeholder='message')
+              button.w3-button.w3-block.w3-black(type='button', onclick="alert('Your Message Sent');") Send
+          .w3-col.s4
+            h4
+              strong ABOUT
+            p
+              a(href='#') About us
+            p
+              a(href='#') Help
+            h4.abc
+              strong NEED HELP ?
+            p
+              i.fa.fa-fw.fa-phone
+              |  9999954637
+            p
+              i.fa.fa-fw.fa-envelope
+              |  desikart@gmail.com
+          div
+            .w3-col.s4.w3-justify
+              h4
+                strong SUBSCRIBE
+              p
+                input.w3-border.abcd.w3-padding-large(type='text', placeholder='xyz@mail.com')
+                button.w3-button.abcd.w3-black(type='button', onclick="alert('Thank  you! for subscribing');") SUBSCRIBE
+      .w3-black.w3-center.w3-padding-8
+        h4
+          font(colour='white') CONNECT
+        i.fa.fa-facebook-official.w3-hover-opacity.w3-large
+        i.fa.fa-instagram.w3-hover-opacity.w3-large
+        i.fa.fa-snapchat.w3-hover-opacity.w3-large
+        i.fa.fa-pinterest-p.w3-hover-opacity.w3-large
+        i.fa.fa-twitter.w3-hover-opacity.w3-large
+        i.fa.fa-linkedin.w3-hover-opacity.w3-large
