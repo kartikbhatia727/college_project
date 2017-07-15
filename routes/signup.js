@@ -12,8 +12,8 @@ var pool = mysql.createPool({
 var transporter = nodemailer.createTransport({
     service: 'gmail'
     , auth: {
-        user: 'vibhor350a@gmail.com'
-        , pass: 'vibhoriscool1'
+        user: 'supersecretemail'
+        , pass: 'supersecretpassword'
     }
 });
 var token = '';
@@ -76,7 +76,7 @@ router.post('/', checkSignIn, function (req, res, next) {
                     console.log("Success");
                     console.log(req.session.user.name);
                     var mailOptions = {
-                        from: 'vibhor350a@gmail.com'
+                        from: 'supersecretemail'
                         , to: req.session.user.email
                         , subject: 'Please Verify your Email Address'
                         , text: 'Please click on the link below!'
