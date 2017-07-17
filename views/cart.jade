@@ -9,28 +9,22 @@ html(lang='en')
     link(href='https://fonts.googleapis.com/css?family=Indie+Flower', rel='stylesheet')
     link(rel='stylesheet', href='app/stylesheets/mystyle.css')
     script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
-    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
-    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js')
-    script.
-      var local_data =;
-    script.
-      $(document).ready(function(){
-      console.log(local_data);
-      });
-    script(type='text/javascript', src='javascripts/abc.js')
+    script(type='text/javascript', src='javascripts/cart_update.js')
+    script(type='text/javascript', src='javascripts/cart_delete.js')    
     script(type='text/javascript', src='javascripts/checkout.js')
+    script(type='text/javascript', src='javascripts/script.js')
     style.
       ul{
       list-style: none;
       }
-      
-  body(ng-app='app', ng-controller='cctrl')
+  body
     .w3-container
       // Top header
       header.w3-container.w3-xlarge.w3-bar
         h1.w3-bar-item
-          strong DesiKart
+          a(href='/',style='text-decoration:none')
+            strong DesiKart
         .w3-hide-large(style='margin-top:83px')
         p.w3-bar-item
         p
@@ -40,29 +34,30 @@ html(lang='en')
               .w3-dropdown-content.w3-bar-block.w3-border.w-padding
                 a.w3-bar-item.w3-button(href='/account') Account
                 a.w3-bar-item.w3-button(href='/orders') Order
-                a.w3-bar-item.w3-button(href='/logout') Logout
+                #logout.w3-bar-item.w3-button Logout
             a(href='/cart')
               i.fa.fa-shopping-cart.w3-margin-right
     .w3-container.w3-light-grey.w3-center
       h2
         strong Cart
-    if parseInt("#{result.length}")!=0
-        ul#i
-        each item,i in result,a
-            li.well    
-                h4    
-                    |Brand: #{item.brand}
-                    |#{item.description}
-                    |Price: #{item.price}
-                input.quant(type='text',value='#{item.quantity}',id='quant#{i}')
-                br
-                input(type='submit',id='ok#{i}',value='ok',onclick='abc(#{item.cid},#{item.id}),#{item.pid},document.getElementById("#quant#{i}").value')
-                br
-                input(type='submit',id='delete#{i}',value='delete')
-                img(src='#{item.image}',alt='#{item.description}')
-        input#checkout(type='submit',value='checkout')
-    else
-        h2(style='text-align: center;') Your Cart is Empty
+        if parseInt("!{result.length}")!=0
+            ul#i
+            each item,i in result,a
+                li.well    
+                    h4    
+                        |Brand: #{item.brand}
+                        |#{item.description}
+                        |Price: #{item.price}
+                    input.quant(type='text',value='#{item.quantity}',id='quant#{i}')
+                    br
+                    input(type='submit',id='ok#{i}',value='ok',onclick='update(' + item.cid + ','+ i +')')
+                    br
+                    input(type='submit',id='delete#{i}',value='delete',onclick='delete1(' + item.cid + ')')
+                    img(src='#{item.image}',alt='#{item.description}')
+                input#checkout(type='submit',value='checkout')
+        else
+            br
+            h2(style='text-align: center;') Your Cart is Empty
     .w3-container.w3-black.w3-padding-8
       h6  
     footer#footer.w3-padding-64.w3-light-grey.w3-small.w3-center

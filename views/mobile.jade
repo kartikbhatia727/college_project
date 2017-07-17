@@ -8,6 +8,7 @@ html
   link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto')
   link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Montserrat')
   link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  script(type='text/javascript', src='javascripts/script.js')
   style.
     * {
     box-sizing: border-box
@@ -91,7 +92,7 @@ html
       .w3-container.w3-display-container.w3-padding-16
         i.fa.fa-remove.w3-hide-large.w3-button.w3-display-topright(onclick='w3_close()')
         h1.w3-wide
-          a(href='index.html')
+          a(href='/',style='text-decoration:none')
             b
               strong DesiKart
       .w3-padding-64.w3-large.w3-text-grey(style='font-weight:bold')
@@ -122,7 +123,7 @@ html
               .w3-dropdown-content.w3-bar-block.w3-border.w-padding
                 a.w3-bar-item.w3-button(href='/account') Account
                 a.w3-bar-item.w3-button(href='/orders') Order
-                a.w3-bar-item.w3-button(href='/logout') Logout
+                #logout.w3-bar-item.w3-button Logout
             a(href='/cart')
               i.fa.fa-shopping-cart.w3-margin-right
         nav

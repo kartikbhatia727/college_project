@@ -11,6 +11,7 @@ html
   link(rel='stylesheet', href='static/css1/style.css')
   script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js')    
   script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  script(type='text/javascript', src='javascripts/search.js')
   script(type='text/javascript', src='javascripts/script.js')
   script.
         $(document).ready(function(){
@@ -104,7 +105,7 @@ html
       .w3-container.w3-display-container.w3-padding-16
         i.fa.fa-remove.w3-hide-large.w3-button.w3-display-topright(onclick='w3_close()')
         h1.w3-wide
-          a(href='index.html')
+          a(href='/')
             b DesiKart
       .w3-padding-64.w3-large.w3-text-grey(style='font-weight:bold')
         a.w3-bar-item.w3-button(href='/mobile') Mobile
@@ -138,7 +139,7 @@ html
               .w3-dropdown-content.w3-bar-block.w3-border.w-padding
                 a.w3-bar-item.w3-button(href='/account') Account
                 a.w3-bar-item.w3-button(href='/orders') Order
-                a.w3-bar-item.w3-button#logout(href='/logout') Logout
+                .w3-bar-item.w3-button#logout Logout
             a(href='/cart')
               i.fa.fa-shopping-cart.w3-margin-right
         nav

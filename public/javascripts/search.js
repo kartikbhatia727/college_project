@@ -1,16 +1,12 @@
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
+var app = angular.module("testapp", []);
+app.controller("testController", function($scope,$window) {
+  $scope.message = "Hello, AngularJS";	
 
-squery="";
-
-$(Document).ready(function(){
-squery = getParameterByName('squery');
-    alert(squery);
+    $scope.search = function(q){
+        if(q)
+$window.location.href='/search?squery='+q;
+        else
+$window.location.href='/search?squery=';            
+        console.log("I'm Here!");
+    };
 });

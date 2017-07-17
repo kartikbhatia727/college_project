@@ -17,6 +17,20 @@ html(lang='en')
     script(src='app/JS/factory.js')    
     script(type='text/javascript', src='javascripts/abc.js')
     script(type='text/javascript', src='javascripts/checkout.js')
+    script(type='text/javascript', src='javascripts/script.js')    
+    script.
+        $(document).ready(function(){
+        id="#{user.id}";
+        if(id!="Guest")
+        {
+        $('#l').hide();
+        //$('#signup').hide();
+        }
+        else
+        {
+        $('#logout').hide();
+        }
+        });
     style.
       ul{
       list-style: none;
@@ -27,7 +41,8 @@ html(lang='en')
       // Top header
       header.w3-container.w3-xlarge.w3-bar
         h1.w3-bar-item
-          strong DesiKart
+          a(href='/',style='text-decoration:none')
+            strong DesiKart
         .w3-hide-large(style='margin-top:83px')
         p.w3-bar-item
         p
@@ -37,9 +52,10 @@ html(lang='en')
               .w3-dropdown-content.w3-bar-block.w3-border.w-padding
                 a.w3-bar-item.w3-button(href='/account') Account
                 a.w3-bar-item.w3-button(href='/orders') Order
-                a.w3-bar-item.w3-button(href='/logout') Logout
+                #logout.w3-bar-item.w3-button Logout
             a(href='/cart')
               i.fa.fa-shopping-cart.w3-margin-right
+    
     .w3-container.w3-light-grey.w3-center
       h1 Search Results
       br

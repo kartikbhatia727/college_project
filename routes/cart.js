@@ -43,9 +43,7 @@ router.get('/',checkSignIn,function (req, res) {
                 }
             });
         conn.release();
-        });
-    
-        //console.log(result);        
+        });    
     }
 });
 /*router.post('/addItem', function (req, res) {
