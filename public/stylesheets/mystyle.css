@@ -1,0 +1,19 @@
+#quanttext{
+display: none;
+}
+
+.delete {
+    background:none!important;
+     border:none; 
+     padding:0!important;
+    
+    /*optional*/
+    font-family:arial,sans-serif; /*input has OS specific font-family*/
+     color:#069;
+     cursor:pointer;
+    width: 50px;
+}
+
+.delete:hover{
+         text-decoration:underline;
+}

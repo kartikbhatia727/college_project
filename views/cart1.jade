@@ -10,14 +10,10 @@ html(lang='en')
     link(rel='stylesheet', href='app/stylesheets/mystyle.css')
     script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
-    link(rel='stylesheet', href='stylesheets/mystyle.css')
-    script(type='text/javascript', src='javascripts/cart_load.js')
     script(type='text/javascript', src='javascripts/cart_update.js')
     script(type='text/javascript', src='javascripts/cart_delete.js')    
     script(type='text/javascript', src='javascripts/checkout.js')
     script(type='text/javascript', src='javascripts/script.js')
-    script.
-      var local_data =!{JSON.stringify(result)};
     style.
       ul{
       list-style: none;
@@ -47,25 +43,16 @@ html(lang='en')
         if parseInt("!{result.length}")!=0
             ul#i
             each item,i in result,a
-                li.well(style='list-style: none;')    
+                li.well    
                     h4    
                         |Brand: #{item.brand}
                         |#{item.description}
                         |Price: #{item.price}
-                    select(name='quant',id='q#{i}',onchange='update(' + item.cid + ','+ i +')')
-                        optgroup(label='Quantity')
-                        option#op1(value='1') 1
-                        option#op2(value='2') 2
-                        option#op3(value='3') 3
-                        option#op4(value='4') 4
-                        option#op5(value='5') 5
-                        option#op6(value='6') 6
-                        option#op7(value='7') 7
-                        option#op8(value='8') 8
-                        option#op9(value='9') 9
-                        option#op10(value='10') 10
-                    input(type='submit',id='delete#{i}',value='delete',onclick='delete1(' + item.cid + ')',class='delete')
+                    input.quant(type='text',value='#{item.quantity}',id='quant#{i}')
                     br
+                    input(type='submit',id='ok#{i}',value='ok',onclick='update(' + item.cid + ','+ i +')')
+                    br
+                    input(type='submit',id='delete#{i}',value='delete',onclick='delete1(' + item.cid + ')')
                     img(src='#{item.image}',alt='#{item.description}')
                 input#checkout(type='submit',value='checkout')
         else

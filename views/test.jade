@@ -129,8 +129,8 @@ html
       // Top header
       header.w3-container.w3-xlarge.w3-bar
         p.w3-bar-item
-          input#search(type='text', size='30', placeholder='Search..' ng-model='squery')
-          input#searchbtn(type='submit',value='Search' ng-click='search(squery)')
+          input#search(type='text', size='30', placeholder='Search..',ng-model='squery',ng-keypress='enter($event,squery)')
+          input#searchbtn(type='submit',value='Search',ng-click='search(squery)')
         p
           .w3-right.w3-bar-item
             |Hi, #{user.name}

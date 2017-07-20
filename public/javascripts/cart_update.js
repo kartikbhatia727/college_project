@@ -1,7 +1,7 @@
 function update(cid,i) {
     //console.log("abc");
     console.log(i);
-    var newQuantity=$('#quant'+i).val();
+    var newQuantity=$('#q'+i).val();
     //console.log(newQuantity);
     $.ajax({
         url: "ap/cart/" + cid

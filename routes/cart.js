@@ -39,8 +39,15 @@ router.get('/',checkSignIn,function (req, res) {
                      a.push(i);
                 }
                 console.log(a);
+                    if(rows.length>0){
                     res.render('cart',{result:rows,arr:a});  
                 }
+                else
+                {
+                    res.render('cart_empty');
+                }
+                }
+                
             });
         conn.release();
         });    
