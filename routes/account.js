@@ -15,7 +15,8 @@ function checkSignIn(req, res, next) {
     next();    
     }
     else {    
-    res.redirect('/login');
+    req.session.redirectFlag='/account';
+        res.redirect('/login');
     }
 }
 

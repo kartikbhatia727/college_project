@@ -12,8 +12,8 @@ var pool = mysql.createPool({
 var transporter = nodemailer.createTransport({
     service: 'gmail'
     , auth: {
-        user: 'supersecretemail'
-        , pass: 'supersecretpassword'
+        user: 'youremail'
+        , pass: 'yourpassword'
     }
 });
 var token = '';
@@ -73,39 +73,42 @@ router.post('/', checkSignIn, function (req, res, next) {
                         , email: req.body.email
                         , mobile: req.body.mob
                     };
-                    console.log("Success");
-                    console.log(req.session.user.name);
-                    var mailOptions = {
-                        from: 'supersecretemail'
-                        , to: req.session.user.email
-                        , subject: 'Please Verify your Email Address'
-                        , text: 'Please click on the link below!'
-                        , html: '<a href="' + genlink(req.headers.host) + '">' + genlink(req.headers.host) + '</a>'
-                    };
-                    transporter.sendMail(mailOptions, function (error, info) {
-                        if (error) {
-                            console.log(error);
-                        }
-                        else {
-                            console.log('Email sent: ' + info.response);
-                        }
-                    });
-                }
-            });
-            console.log(token);
-            console.log(genlink(req.headers.host));
-            var query1 = "Insert into verification(email,token) values('" + req.body.email + "','" + token + "')";
-            conn.query(query1, function (err2) {
-                if (err2) {
-                    console.log("error2");
-                }
-                else {
-                    console.log(token);
-                    console.log("success!");
                     res.status(200).send('/');
+                    console.log("Success");
+                    /*                    console.log(req.session.user.name);
+                                        var mailOptions = {
+                                            from: 'your email'
+                                            , to: req.session.user.email
+                                            , subject: 'Please Verify your Email Address'
+                                            , text: 'Please click on the link below!'
+                                            , html: '<a href="' + genlink(req.headers.host) + '">' + genlink(req.headers.host) + '</a>'
+                                        };
+                                        transporter.sendMail(mailOptions, function (error, info) {
+                                            if (error) {
+                                                console.log(error);
+                                            }
+                                            else {
+                                                console.log('Email sent: ' + info.response);
+                                            }
+                                        });
+                                    }
+                                });
+                                console.log(token);
+                                console.log(genlink(req.headers.host));
+                                var query1 = "Insert into verification(email,token) values('" + req.body.email + "','" + token + "')";
+                                conn.query(query1, function (err2) {
+                                    if (err2) {
+                                        console.log("error2");
+                                    }
+                                    else {
+                                        console.log(token);
+                                        console.log("success!");
+                                        res.status(200).send('/');
+                                    }
+                               });*/
+                    conn.release();
                 }
             });
-            conn.release();
         }
     });
 });

@@ -4,9 +4,10 @@ html(lang='en')
     meta(charset='UTF-8')
     title DesiKart : Signup
     link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    link(rel='stylesheet', href='stylesheets/style.css')    
     script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
     script(src='//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js')
-    script(src='static/javascript1/formSignup')
+    script(src='static/javascript1/formSignup.js')
     script(src='javascripts/signup.js')
     style.
       .form {
@@ -23,22 +24,30 @@ html(lang='en')
     .w3-container.w3-center.form(style='padding-top:40px;')
       div
       | NAME:
-      input#name(style='border-radius:3px', type='text')
+      input#name(style='border-radius:3px', type='text',onblur='validateAgain()')
+      div.validation#invalidname(hidden='true') !&nbsp;&nbsp;&nbsp;Please Fill Out your Name 
       p
       br
       |       Mobile:
-      input#mob(style='border-radius:3px', type='text', data-validation-length='10', data-validation='number')
+      input#mob(style='border-radius:3px', type='text',maxlength=10,onkeypress='return isNumberKey(event)',onblur='validateAgain()')
+      div.validation#invalidmob(hidden='true') !&nbsp;&nbsp;&nbsp;The Mobile Number You Entered doesn't seem to be valid!       
       p
       br
       |       Email:
-      input#email(style='border-radius:3px', type='text', data-validation='email')
+      input#email(style='border-radius:3px', type='text',onblur='validateAgain()')
+      div.validation#invalidemail(hidden='true') !&nbsp;&nbsp;&nbsp;The Email You Entered Doesn't seem to be Valid       
       p
       br
       |       Password:
-      input#pass(style='border-radius:3px', type='password', data-validation='length', data-validation-length='min8')
+      input#pass(style='border-radius:3px', type='password',onblur='validateAgain()')
+      div.validation#invalidpass(hidden='true') !&nbsp;&nbsp;&nbsp;You Must Enter a Password atleast 8 characters long        
       p
       br
-      input#btn(type='submit', value='SignUp')
+      input#btn(type='submit', value='SignUp',)
+      br
+      |Already Have an Account? 
+      br
+      a(href='/login') Please Login  
     hr
     footer.w3-container.w3-light-black.w3-center
       p

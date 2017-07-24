@@ -17,6 +17,11 @@ html(lang='en')
     script(type='text/javascript', src='javascripts/checkout.js')
     script(type='text/javascript', src='javascripts/script.js')
     script.
+        $(document).ready(function(){
+        id="#{user.id}";
+        sid="#{sid}";
+        });
+    script.
       var local_data =!{JSON.stringify(result)};
     style.
       ul{
@@ -67,7 +72,7 @@ html(lang='en')
                     input(type='submit',id='delete#{i}',value='delete',onclick='delete1(' + item.cid + ')',class='delete')
                     br
                     img(src='#{item.image}',alt='#{item.description}')
-                input#checkout(type='submit',value='checkout')
+            input#checkout(type='submit',value='checkout')
         else
             br
             h2(style='text-align: center;') Your Cart is Empty

@@ -21,6 +21,36 @@ function checkSignIn(req, res, next) {
 }
 
 
+function checkTempCart(sid,id) {
+    console.log("function called!");
+    pool.getConnection(function (err, conn) {
+        var query = "select*from tempcart where id='" +sid+"'";
+        conn.query(query, function (err, rows, fields) {
+            if(rows.length>0)
+            {
+                for(var i=0;i<rows.length;i++)
+                {
+                    query = "insert into cart(id,pid,quantity) values("+id+","+rows[i].pid+","+rows[i].quantity+")";
+                    conn.query(query,function(err1,rows1){
+                        if(rows1.insertId)
+                        {
+                            console.log("OK");
+                        }
+                    });
+                }
+            query="delete from tempcart where id='"+sid+"'";
+                conn.query(query,function(err1,rows1){
+                        if(!err1)
+                        {
+                            console.log("delOK");
+                        }
+                    });
+            }
+        });
+    });
+}
+
+
 router.get('/',function(req,res){
     if(req.session.user)
     res.redirect('/');
@@ -49,7 +79,13 @@ router.post('/', checkSignIn, function (req, res, next) {
                         , email: rows[0].email
                         , mobile: rows[0].mobile
                     };
-                res.status(200).send("Hello!");
+                 checkTempCart(req.session.id,req.session.user.id);
+                 
+                 if(!req.session.redirectFlag)
+                 {
+                     req.session.redirectFlag="/";
+                 }
+                 res.status(200).send(req.session.redirectFlag);
                     console.log("User with id "+req.session.user.id+" Logged in!");
                 }
                 else

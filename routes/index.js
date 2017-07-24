@@ -29,12 +29,12 @@ router.get('/search',function(req,res){
 
 router.get('/products',function(req,res){
     if(req.session.user)
-    res.render('products',{user:req.session.user});
+    res.render('products',{user:req.session.user,sid: req.session.id,});
 else
     res.render('products',{user:{
         id: "Guest",
         name: "Guest"
-    }});
+    },sid: req.session.id});
     //res.render('products');
 });
 

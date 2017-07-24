@@ -7,9 +7,7 @@ $(Document).ready(function () {
                 password: $('#password').val()    
                },
                function (data,status) {
-            //alert(data);    
-            //alert(data);
-            window.location.replace('/');
+            window.location.replace(data);
         });
     });
 });

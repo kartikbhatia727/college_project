@@ -6,7 +6,7 @@ function checkSignIn(req, res, next) {
     next();    
     }
     else {    
-    res.redirect('/test');
+    res.redirect('/');
     }
 }
 
