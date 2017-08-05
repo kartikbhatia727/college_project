@@ -12,11 +12,11 @@ function validateForm()
 		var password=$('#pass').val(); 
 		//var cpassword=document.forms["myForm"]["cpassword"].value;		
         var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;		
-		
+	var b=true;	
         if(name.length==0)
         {
             $('#invalidname').show();
-            var b=false;
+             b=false;
         }
         
         if(!email.match(mailformat))
@@ -37,12 +37,7 @@ function validateForm()
             b= false;
 		}
         
-        if(!b)
-        {
-            return false;
-        }
-    
-            return true;
+            return b;
     	}
 
 function validateAgain()
